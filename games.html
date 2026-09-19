@@ -1,0 +1,811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>🎮 Olamide's Arcade</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            min-height: 100vh;
+            background: #080d1a;
+            color: white;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        /* =========================
+           HEADER
+        ========================= */
+
+        .arcade-header {
+            text-align: center;
+            padding: 55px 20px 30px;
+        }
+
+        .arcade-header h1 {
+            font-size: 38px;
+            color: #00e5ff;
+            margin-bottom: 12px;
+            text-shadow: 0 0 18px rgba(0, 229, 255, 0.45);
+        }
+
+        .arcade-header p {
+            color: #b9c4d4;
+            font-size: 15px;
+            line-height: 1.6;
+        }
+
+        /* =========================
+           BACK BUTTON
+        ========================= */
+
+        .back-btn {
+            display: inline-block;
+            margin: 0 20px 25px;
+            padding: 10px 16px;
+
+            color: #00e5ff;
+            text-decoration: none;
+
+            border: 1px solid rgba(0, 229, 255, 0.35);
+            border-radius: 10px;
+
+            background: rgba(0, 229, 255, 0.06);
+
+            transition: 0.25s ease;
+        }
+
+        .back-btn:hover {
+            background: rgba(0, 229, 255, 0.14);
+            border-color: #00e5ff;
+            transform: translateX(-3px);
+        }
+
+        /* =========================
+           SEARCH
+        ========================= */
+
+        .search-container {
+            width: min(700px, 90%);
+            margin: 10px auto 35px;
+        }
+
+        .search-box {
+            width: 100%;
+            padding: 15px 18px;
+
+            background: #0d1526;
+            color: white;
+
+            border: 1px solid rgba(0, 229, 255, 0.35);
+            border-radius: 14px;
+
+            outline: none;
+            font-size: 15px;
+
+            transition: 0.25s ease;
+        }
+
+        .search-box:focus {
+            border-color: #00e5ff;
+            box-shadow: 0 0 18px rgba(0, 229, 255, 0.2);
+        }
+
+        .search-box::placeholder {
+            color: #7f8da3;
+        }
+
+        /* =========================
+           CATEGORIES
+        ========================= */
+
+        .categories {
+            width: min(1100px, 92%);
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 14px;
+
+            padding-bottom: 50px;
+        }
+
+        .category {
+            padding: 20px 14px;
+
+            min-height: 105px;
+
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+
+            text-align: center;
+
+            background: #0d1526;
+
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            border-radius: 15px;
+
+            cursor: pointer;
+
+            transition:
+                transform 0.25s ease,
+                border-color 0.25s ease,
+                box-shadow 0.25s ease,
+                background 0.25s ease;
+        }
+
+        .category:hover {
+            transform: translateY(-5px);
+
+            border-color: #00e5ff;
+
+            background: #101c31;
+
+            box-shadow:
+                0 0 12px rgba(0, 229, 255, 0.25),
+                0 0 28px rgba(0, 229, 255, 0.08);
+        }
+
+        .category-icon {
+            font-size: 30px;
+            margin-bottom: 9px;
+        }
+
+        .category-name {
+            font-size: 14px;
+            font-weight: 700;
+        }
+
+        /* =========================
+           NO RESULT
+        ========================= */
+
+        .no-result {
+            display: none;
+
+            width: min(500px, 90%);
+            margin: 30px auto;
+
+            text-align: center;
+
+            padding: 35px 20px;
+
+            background: #0d1526;
+
+            border: 1px solid rgba(0, 229, 255, 0.2);
+            border-radius: 16px;
+        }
+
+        .no-result h2 {
+            color: #00e5ff;
+            font-size: 20px;
+            margin-bottom: 10px;
+        }
+
+        .no-result p {
+            color: #9ca8bb;
+            font-size: 14px;
+        }
+
+        /* =========================
+           FOOTER
+        ========================= */
+
+        .arcade-footer {
+            text-align: center;
+            padding: 25px 20px;
+            color: #66748a;
+            font-size: 13px;
+        }
+
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 800px) {
+
+            .categories {
+                grid-template-columns: repeat(3, 1fr);
+            }
+
+        }
+
+        @media (max-width: 550px) {
+
+            .arcade-header {
+                padding-top: 40px;
+            }
+
+            .arcade-header h1 {
+                font-size: 29px;
+            }
+
+            .categories {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 10px;
+            }
+
+            .category {
+                min-height: 95px;
+                padding: 15px 8px;
+            }
+
+            .category-icon {
+                font-size: 25px;
+            }
+
+            .category-name {
+                font-size: 12px;
+            }
+
+        }
+
+            /* =========================
+   RACING GAMES - FIX
+========================= */
+
+.racing-game {
+    min-height: 150px;
+    padding: 25px 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    text-align: center;
+
+    background: #0d1526 !important;
+    color: white !important;
+
+    border: 1px solid rgba(0, 229, 255, 0.3) !important;
+    border-radius: 18px;
+
+    font-size: 42px;
+    cursor: pointer;
+
+    box-shadow: 0 0 15px rgba(0, 229, 255, 0.12);
+
+    transition: 0.25s ease;
+}
+
+.racing-game strong {
+    color: #00e5ff !important;
+    font-size: 15px;
+    font-weight: 700;
+}
+
+.racing-game:hover {
+    background: #101c31 !important;
+    border-color: #00e5ff !important;
+    transform: translateY(-5px);
+
+    box-shadow:
+        0 0 15px rgba(0, 229, 255, 0.35),
+        0 0 30px rgba(0, 229, 255, 0.12);
+}
+
+.racing-game:active {
+    transform: scale(0.97);
+}
+
+@media (max-width: 550px) {
+
+    .racing-game {
+        min-height: 125px;
+        font-size: 34px;
+    }
+
+    .racing-game strong {
+        font-size: 13px;
+    }
+
+}
+    </style>
+</head>
+
+<body>
+
+    <!-- =========================
+         HEADER
+    ========================= -->
+
+    <header class="arcade-header">
+
+        <h1>🎮 Olamide's Arcade</h1>
+
+        <p>
+            Please kindly pick any category of games you may like to play.
+        </p>
+
+    </header>
+
+
+    <!-- =========================
+         BACK TO PORTFOLIO
+    ========================= -->
+
+    <a href="index.html" class="back-btn">
+        ← Back
+    </a>
+
+
+    <!-- =========================
+         SEARCH
+    ========================= -->
+
+    <div class="search-container">
+
+        <input
+            type="text"
+            id="categorySearch"
+            class="search-box"
+            placeholder="🔎 Search game categories..."
+            autocomplete="off"
+        >
+
+    </div>
+
+
+    <!-- =========================
+         CATEGORIES
+    ========================= -->
+
+    <main>
+
+        <div class="categories" id="categories">
+
+            <div class="category" data-name="racing">
+                <div class="category-icon">🏎️</div>
+                <div class="category-name">Racing</div>
+            </div>
+
+            <div class="category" data-name="arcade">
+                <div class="category-icon">🕹️</div>
+                <div class="category-name">Arcade</div>
+            </div>
+
+            <div class="category" data-name="puzzle">
+                <div class="category-icon">🧩</div>
+                <div class="category-name">Puzzle</div>
+            </div>
+
+            <div class="category" data-name="classic board">
+                <div class="category-icon">♟️</div>
+                <div class="category-name">Classic & Board</div>
+            </div>
+
+            <div class="category" data-name="sports">
+                <div class="category-icon">⚽</div>
+                <div class="category-name">Sports</div>
+            </div>
+
+            <div class="category" data-name="action">
+                <div class="category-icon">⚔️</div>
+                <div class="category-name">Action</div>
+            </div>
+
+            <div class="category" data-name="adventure">
+                <div class="category-icon">🗺️</div>
+                <div class="category-name">Adventure</div>
+            </div>
+
+            <div class="category" data-name="platformer">
+                <div class="category-icon">🏃</div>
+                <div class="category-name">Platformer</div>
+            </div>
+
+            <div class="category" data-name="horror">
+                <div class="category-icon">👻</div>
+                <div class="category-name">Horror</div>
+            </div>
+
+            <div class="category" data-name="survival">
+                <div class="category-icon">🧟</div>
+                <div class="category-name">Survival</div>
+            </div>
+
+            <div class="category" data-name="space">
+                <div class="category-icon">🚀</div>
+                <div class="category-name">Space</div>
+            </div>
+
+            <div class="category" data-name="fighting">
+                <div class="category-icon">🥊</div>
+                <div class="category-name">Fighting</div>
+            </div>
+
+            <div class="category" data-name="aim accuracy">
+                <div class="category-icon">🎯</div>
+                <div class="category-name">Aim & Accuracy</div>
+            </div>
+
+            <div class="category" data-name="building">
+                <div class="category-icon">🏗️</div>
+                <div class="category-name">Building</div>
+            </div>
+
+            <div class="category" data-name="cooking">
+                <div class="category-icon">🍳</div>
+                <div class="category-name">Cooking</div>
+            </div>
+
+            <div class="category" data-name="business tycoon">
+                <div class="category-icon">💰</div>
+                <div class="category-name">Business & Tycoon</div>
+            </div>
+
+            <div class="category" data-name="farming">
+                <div class="category-icon">🌾</div>
+                <div class="category-name">Farming</div>
+            </div>
+
+            <div class="category" data-name="fantasy">
+                <div class="category-icon">🧙</div>
+                <div class="category-name">Fantasy</div>
+            </div>
+
+            <div class="category" data-name="mystery detective">
+                <div class="category-icon">🔎</div>
+                <div class="category-name">Mystery & Detective</div>
+            </div>
+
+            <div class="category" data-name="escape">
+                <div class="category-icon">🚪</div>
+                <div class="category-name">Escape</div>
+            </div>
+
+            <div class="category" data-name="vs ai">
+                <div class="category-icon">🤖</div>
+                <div class="category-name">VS AI</div>
+            </div>
+
+            <div class="category" data-name="2 player">
+                <div class="category-icon">👥</div>
+                <div class="category-name">2 Player</div>
+            </div>
+
+            <div class="category" data-name="time challenge">
+                <div class="category-icon">⏱️</div>
+                <div class="category-name">Time Challenge</div>
+            </div>
+
+            <div class="category" data-name="championship">
+                <div class="category-icon">🏆</div>
+                <div class="category-name">Championship</div>
+            </div>
+
+            <div class="category" data-name="music rhythm">
+                <div class="category-icon">🎵</div>
+                <div class="category-name">Music & Rhythm</div>
+            </div>
+
+            <div class="category" data-name="creative">
+                <div class="category-icon">🎨</div>
+                <div class="category-name">Creative</div>
+            </div>
+
+            <div class="category" data-name="word games">
+                <div class="category-icon">🔤</div>
+                <div class="category-name">Word Games</div>
+            </div>
+
+            <div class="category" data-name="trivia quiz">
+                <div class="category-icon">🧠</div>
+                <div class="category-name">Trivia & Quiz</div>
+            </div>
+
+            <div class="category" data-name="party funny">
+                <div class="category-icon">😂</div>
+                <div class="category-name">Party & Funny</div>
+            </div>
+
+            <div class="category" data-name="tech cyber">
+                <div class="category-icon">💻</div>
+                <div class="category-name">Tech & Cyber</div>
+            </div>
+
+            <div class="category" data-name="programming coding">
+                <div class="category-icon">👨‍💻</div>
+                <div class="category-name">Programming & Coding</div>
+            </div>
+
+        </div>
+
+
+        <!-- NO RESULT -->
+
+        <div class="no-result" id="noResult">
+
+            <h2>🔎 No category found</h2>
+
+            <p>
+                We couldn't find a game category matching your search.
+            </p>
+
+        </div>
+
+    </main>
+
+
+    <footer class="arcade-footer">
+        🎮 Olamide's Arcade • Have fun and enjoy the games!
+    </footer>
+
+
+    <script>
+
+        /* =========================
+           CATEGORY SEARCH
+        ========================= */
+
+        const searchInput = document.getElementById("categorySearch");
+        const categories = document.querySelectorAll(".category");
+        const noResult = document.getElementById("noResult");
+
+        searchInput.addEventListener("input", function () {
+
+            const search = this.value
+                .toLowerCase()
+                .trim();
+
+            let found = false;
+
+            categories.forEach(function (category) {
+
+                const name = category.dataset.name;
+
+                if (name.includes(search)) {
+
+                    category.style.display = "flex";
+                    found = true;
+
+                } else {
+
+                    category.style.display = "none";
+
+                }
+
+            });
+
+            if (search === "") {
+
+                categories.forEach(function (category) {
+                    category.style.display = "flex";
+                });
+
+                noResult.style.display = "none";
+
+            } else if (!found) {
+
+                noResult.style.display = "block";
+
+            } else {
+
+                noResult.style.display = "none";
+
+            }
+
+        });
+
+
+        /* =========================
+           CATEGORY CLICK
+        ========================= */
+
+        categories.forEach(function (category) {
+
+category.addEventListener("click", function () {
+
+    const selectedCategory = this.dataset.name;
+
+    if (selectedCategory === "racing") {
+        openRacing();
+    }
+
+});
+
+});
+
+
+function openRacing() {
+
+document.getElementById("categories").style.display = "none";
+
+document.querySelector(".search-container").style.display = "none";
+
+document.getElementById("noResult").style.display = "none";
+
+const racingScreen = document.createElement("div");
+
+racingScreen.id = "racingScreen";
+
+racingScreen.innerHTML = `
+    <div style="
+        width: min(1000px, 92%);
+        margin: 20px auto 50px;
+    ">
+
+        <button
+            onclick="closeRacing()"
+            style="
+                padding: 10px 16px;
+                margin-bottom: 25px;
+                background: rgba(0,229,255,0.06);
+                color: #00e5ff;
+                border: 1px solid rgba(0,229,255,0.35);
+                border-radius: 10px;
+                cursor: pointer;
+                font-weight: 700;
+            "
+        >
+            ← Back
+        </button>
+
+        <h2 style="
+            color: #00e5ff;
+            text-align: center;
+            margin-bottom: 10px;
+            font-size: 28px;
+        ">
+            🏎️ Racing
+        </h2>
+
+        <p style="
+            text-align: center;
+            color: #9ca8bb;
+            margin-bottom: 30px;
+        ">
+            Choose a racing game and get ready to drive!
+        </p>
+
+        <div style="
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        ">
+
+        <div class="racing-game" onclick="openHighwayRacer()">
+           🏎️
+           <strong>Highway Racer</strong>
+        </div>
+
+            <div class="racing-game">
+                🚗
+                <strong>Traffic Rush</strong>
+            </div>
+
+            <div class="racing-game">
+                🏁
+                <strong>Speed Challenge</strong>
+            </div>
+
+            <div class="racing-game">
+                🏎️
+                <strong>Drift Master</strong>
+            </div>
+
+            <div class="racing-game">
+                🚘
+                <strong>City Racing</strong>
+            </div>
+
+            <div class="racing-game">
+                🏆
+                <strong>Racing Championship</strong>
+            </div>
+
+            <div class="racing-game">
+                🚙
+                <strong>Off-Road Racer</strong>
+            </div>
+
+            <div class="racing-game">
+                ⚡
+                <strong>Extreme Speed</strong>
+            </div>
+
+        </div>
+
+    </div>
+`;
+
+document.querySelector("main").appendChild(racingScreen);
+}
+
+
+function closeRacing() {
+
+const racingScreen = document.getElementById("racingScreen");
+
+if (racingScreen) {
+    racingScreen.remove();
+}
+
+document.getElementById("categories").style.display = "grid";
+
+document.querySelector(".search-container").style.display = "block";
+
+}
+
+function openHighwayRacer() {
+
+document.getElementById("categories").style.display = "none";
+
+document.querySelector(".search-container").style.display = "none";
+
+const racingScreen = document.getElementById("racingScreen");
+
+if (racingScreen) {
+    racingScreen.style.display = "none";
+}
+
+const gameScreen = document.createElement("div");
+
+gameScreen.id = "highwayRacerScreen";
+
+gameScreen.innerHTML = `
+    <div class="highway-racer-screen">
+
+        <button class="racer-back-btn" onclick="closeHighwayRacer()">
+            ← Back
+        </button>
+
+        <h2>🏎️ Highway Racer</h2>
+
+        <p class="racer-intro">
+            Get ready to hit the road!
+        </p>
+
+        <div class="racer-placeholder">
+            <div class="racer-car">🏎️</div>
+
+            <h3>Highway Racer</h3>
+
+            <p>
+                Your racing game will start here.
+            </p>
+
+            <button class="start-racer-btn">
+                🏁 Start Race
+            </button>
+        </div>
+
+    </div>
+`;
+
+document.querySelector("main").appendChild(gameScreen);
+}
+
+
+function closeHighwayRacer() {
+
+const gameScreen =
+    document.getElementById("highwayRacerScreen");
+
+if (gameScreen) {
+    gameScreen.remove();
+}
+
+const racingScreen =
+    document.getElementById("racingScreen");
+
+if (racingScreen) {
+    racingScreen.style.display = "block";
+}
+
+}
+
+
+    </script>
+
+</body>
+</html>
