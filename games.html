@@ -309,6 +309,260 @@
     }
 
 }
+
+/* ===== HIGHWAY RACER LAUNCH SCREEN ===== */
+
+.highway-racer-screen {
+    width: min(900px, 92%);
+    margin: 30px auto 60px;
+    padding: 30px;
+    text-align: center;
+    background: rgba(8, 13, 26, 0.95);
+    border: 1px solid rgba(0, 229, 255, 0.35);
+    border-radius: 22px;
+    box-shadow:
+        0 0 25px rgba(0, 229, 255, 0.15),
+        0 0 60px rgba(0, 229, 255, 0.05);
+    box-sizing: border-box;
+}
+
+.highway-racer-screen h2 {
+    color: #00e5ff;
+    font-size: 36px;
+    margin: 20px 0 10px;
+}
+
+.racer-intro {
+    color: #aeb9ca;
+    font-size: 16px;
+    margin-bottom: 30px;
+}
+
+.racer-placeholder {
+    padding: 35px 20px;
+    border: 1px solid rgba(0, 229, 255, 0.25);
+    border-radius: 18px;
+    background: rgba(0, 229, 255, 0.03);
+}
+
+.racer-car {
+    font-size: 80px;
+    margin-bottom: 15px;
+    animation: racerFloat 2s ease-in-out infinite;
+}
+
+.racer-placeholder h3 {
+    color: white;
+    font-size: 25px;
+    margin: 10px 0;
+}
+
+.racer-placeholder p {
+    color: #9ca8bb;
+    margin-bottom: 25px;
+}
+
+.start-racer-btn {
+    padding: 14px 28px;
+    border: 2px solid #00e5ff;
+    border-radius: 12px;
+    background: #00e5ff;
+    color: #061018;
+    font-size: 16px;
+    font-weight: 800;
+    cursor: pointer;
+    box-shadow: 0 0 20px rgba(0, 229, 255, 0.35);
+    transition: 0.25s ease;
+}
+
+.start-racer-btn:hover {
+    background: transparent;
+    color: #00e5ff;
+    transform: translateY(-3px);
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.55);
+}
+
+.racer-back-btn {
+    padding: 10px 18px;
+    border: 1px solid rgba(0, 229, 255, 0.5);
+    border-radius: 10px;
+    background: rgba(0, 229, 255, 0.05);
+    color: #00e5ff;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+@keyframes racerFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-8px);
+    }
+}
+
+.highway-game-container {
+    width: min(1100px, 94%);
+    margin: 30px auto 60px;
+    text-align: center;
+}
+
+.highway-game-container h2 {
+    color: #00e5ff;
+    margin: 20px 0;
+}
+
+.highway-game-frame {
+    width: 100%;
+    height: 650px;
+    overflow: hidden;
+    border: 2px solid rgba(0, 229, 255, 0.5);
+    border-radius: 18px;
+    background: #000;
+    box-shadow: 0 0 30px rgba(0, 229, 255, 0.25);
+}
+
+.highway-game-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+/* ===== HIGHWAY RACER COMPACT SPACING ===== */
+
+.highway-game-container {
+    padding: 8px 12px 20px !important;
+    margin: 0 auto !important;
+}
+
+.highway-game-container h2 {
+    margin: 8px 0 10px !important;
+    font-size: 22px !important;
+}
+
+.racer-back-btn {
+    margin: 0 0 4px !important;
+    padding: 7px 14px !important;
+}
+
+.highway-game-frame {
+    height: calc(100vh - 115px) !important;
+    margin-top: 0 !important;
+}
+
+/* ===== VS AI ===== */
+
+.vs-ai-container {
+    width: min(1000px, 92%);
+    margin: 20px auto 60px;
+    text-align: center;
+}
+
+.vs-ai-back {
+    display: block;
+    margin-bottom: 15px;
+    padding: 8px 15px;
+    background: transparent;
+    color: #00e5ff;
+    border: 1px solid rgba(0, 229, 255, 0.5);
+    border-radius: 9px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.vs-ai-container h2 {
+    color: #00e5ff;
+    font-size: 30px;
+    margin: 10px 0;
+}
+
+.vs-ai-subtitle {
+    color: #aaa;
+    margin-bottom: 25px;
+}
+
+.vs-ai-games {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+}
+
+.vs-ai-game {
+    padding: 20px;
+    background: rgba(0, 229, 255, 0.06);
+    color: #fff;
+    border: 1px solid rgba(0, 229, 255, 0.35);
+    border-radius: 14px;
+    font-size: 15px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.25s ease;
+}
+
+.vs-ai-game:hover {
+    transform: translateY(-3px);
+    border-color: #00e5ff;
+    box-shadow: 0 0 18px rgba(0, 229, 255, 0.25);
+}
+
+@media (max-width: 600px) {
+    .vs-ai-games {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* ===== TIC-TAC-TOE VS AI SCREEN ===== */
+
+.tic-tac-toe-screen {
+    width: min(1100px, 94%);
+    margin: 15px auto 50px;
+    text-align: center;
+}
+
+.tic-tac-toe-back {
+    display: block;
+    margin-bottom: 10px;
+    padding: 8px 15px;
+
+    background: transparent;
+    color: #00e5ff;
+
+    border: 1px solid rgba(0, 229, 255, 0.6);
+    border-radius: 9px;
+
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.tic-tac-toe-screen h2 {
+    color: #00e5ff;
+    font-size: 25px;
+    margin: 8px 0 12px;
+}
+
+.tic-tac-toe-game {
+    width: 100%;
+    height: 650px;
+
+    overflow: hidden;
+
+    border: 2px solid rgba(0, 229, 255, 0.5);
+    border-radius: 16px;
+
+    background: #000;
+
+    box-shadow:
+        0 0 25px rgba(0, 229, 255, 0.2);
+}
+
+.tic-tac-toe-game iframe {
+    display: block;
+
+    width: 100%;
+    height: 100%;
+
+    border: 0;
+}
     </style>
 </head>
 
@@ -463,7 +717,7 @@
                 <div class="category-name">Escape</div>
             </div>
 
-            <div class="category" data-name="vs ai">
+            <div class="category" data-name="vs ai" onclick="openVsAI()">
                 <div class="category-icon">🤖</div>
                 <div class="category-name">VS AI</div>
             </div>
@@ -774,8 +1028,8 @@ gameScreen.innerHTML = `
                 Your racing game will start here.
             </p>
 
-            <button class="start-racer-btn">
-                🏁 Start Race
+            <button class="start-racer-btn" onclick="startHighwayRacer()">
+              🏁 Start Race
             </button>
         </div>
 
@@ -805,6 +1059,176 @@ if (racingScreen) {
 }
 
 
+function startHighwayRacer() {
+    const screen = document.getElementById("highwayRacerScreen");
+
+    if (!screen) return;
+
+    screen.innerHTML = `
+        <div class="highway-game-container">
+
+            <button class="racer-back-btn" onclick="closeHighwayRacer()">
+                ← Back
+            </button>
+
+            <h2>🏎️ Highway Racer</h2>
+
+            <div class="highway-game-frame">
+                <iframe
+                    title="Highway Racer"
+                    src="https://hapagames.com/game/highway-racer.embed"
+                    frameborder="0"
+                    allowfullscreen="true"
+                    scrolling="no">
+                </iframe>
+            </div>
+
+        </div>
+    `;
+}
+
+/* ===== VS AI CATEGORY ===== */
+
+function openVsAI() {
+    const categories = document.getElementById("categories");
+    const searchContainer = document.querySelector(".search-container");
+
+    if (categories) categories.style.display = "none";
+    if (searchContainer) searchContainer.style.display = "none";
+
+    let vsAI = document.getElementById("vsAIScreen");
+
+    if (!vsAI) {
+        vsAI = document.createElement("section");
+        vsAI.id = "vsAIScreen";
+        document.body.appendChild(vsAI);
+    }
+
+    vsAI.style.display = "block";
+
+    vsAI.innerHTML = `
+        <div class="vs-ai-container">
+
+            <button class="vs-ai-back" onclick="closeVsAI()">
+                ← Back
+            </button>
+
+            <h2>🤖 VS AI</h2>
+
+            <p class="vs-ai-subtitle">
+                Choose a game and challenge the computer.
+            </p>
+
+            <div class="vs-ai-games">
+
+                <button class="vs-ai-game">
+                    ❌⭕ Tic-Tac-Toe vs AI
+                </button>
+
+                <button class="vs-ai-game">
+                    ✊ Rock Paper Scissors vs AI
+                </button>
+
+                <button class="vs-ai-game">
+                    🧠 Quiz Battle vs AI
+                </button>
+
+                <button class="vs-ai-game">
+                    🔴 Connect Four vs AI
+                </button>
+
+                <button class="vs-ai-game">
+                    ♟️ Chess vs AI
+                </button>
+
+                <button class="vs-ai-game">
+                    🎯 Aim Challenge vs AI
+                </button>
+
+                <button class="vs-ai-game">
+                    🏎️ Racing vs AI
+                </button>
+
+                <button class="vs-ai-game">
+                    ⚔️ Battle Arena vs AI
+                </button>
+
+            </div>
+
+        </div>
+    `;
+}
+
+
+function closeVsAI() {
+    const vsAI = document.getElementById("vsAIScreen");
+
+    if (vsAI) {
+        vsAI.style.display = "none";
+        vsAI.innerHTML = "";
+    }
+
+    const categories = document.getElementById("categories");
+    const searchContainer = document.querySelector(".search-container");
+
+    if (categories) categories.style.display = "";
+    if (searchContainer) searchContainer.style.display = "";
+}
+
+/* ===== TIC-TAC-TOE VS AI ===== */
+
+document.addEventListener("click", function(event) {
+    const gameButton = event.target.closest(".vs-ai-game");
+
+    if (!gameButton) return;
+
+    if (gameButton.textContent.includes("Tic-Tac-Toe")) {
+        openTicTacToeAI();
+    }
+});
+
+
+function openTicTacToeAI() {
+    const screen = document.getElementById("vsAIScreen");
+
+    if (!screen) return;
+
+    screen.innerHTML = `
+        <div class="tic-tac-toe-screen">
+
+            <button class="tic-tac-toe-back"
+                onclick="closeTicTacToeAI()">
+                ← Back
+            </button>
+
+            <h2>❌⭕ Tic-Tac-Toe vs AI</h2>
+
+            <div class="tic-tac-toe-game">
+                <iframe
+                    src="https://funclicker.com/games/neon-tic-tac-toe/play.html"
+                    title="Tic-Tac-Toe vs AI"
+                    frameborder="0"
+                    allow="fullscreen; autoplay"
+                    allowfullscreen>
+                </iframe>
+            </div>
+
+        </div>
+    `;
+
+    screen.style.display = "block";
+}
+
+
+function closeTicTacToeAI() {
+    const screen = document.getElementById("vsAIScreen");
+
+    if (!screen) return;
+
+    screen.innerHTML = "";
+
+    openVsAI();
+}
     </script>
 
 </body>

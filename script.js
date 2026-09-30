@@ -61,7 +61,8 @@ const intentKeywords = {
         "who exactly is olamide",
         "who are you",
         "explain yourself",
-        "who you be"
+        "who you be",
+        "Olamide"
     ],
 
     LOCATION_BASED: [
@@ -78,7 +79,10 @@ const intentKeywords = {
         "where are you based",
         "where are you located",
         "location",
-        "is he from nigeria"
+        "is he from nigeria",
+        "where does he lives",
+        "where is he now",
+        "where is he right now"
     ],
 
     WHAT_OLAMIDE_DOES: [
@@ -150,7 +154,10 @@ const intentKeywords = {
         "can olamide make posters",
         "can olamide create banners",
         "olamide dey do graphics",
-        "olamide fit design flyer"
+        "olamide fit design flyer",
+        "olamide fit do grahics design",
+        "can he do do graphics design",
+        "is he into graphics design"
     ],
 
     UI_UX: [
@@ -338,7 +345,8 @@ const intentKeywords = {
         "is olamide accepting projects",
         "does olamide have availability",
         "olamide dey available",
-        "can you work"
+        "can you work",
+        "can i hire you"
     ]
 };
 
@@ -1430,3 +1438,6 @@ function showFunSection() {
 
     response.style.display = "block";
 }
+
+
+

@@ -3008,3 +3008,49 @@ footer .logo {
 .play-games-btn:active {
     transform: scale(0.96);
 }
+
+/* ===== 3D SCROLL EFFECTS ===== */
+
+.three-d-section {
+  perspective: 1200px;
+  transform-style: preserve-3d;
+}
+
+.three-d-card {
+  transform: translateY(60px) rotateX(8deg) scale(0.95);
+  opacity: 0;
+  transition:
+    transform 0.9s ease,
+    opacity 0.9s ease;
+  transform-style: preserve-3d;
+}
+
+.three-d-card.show {
+  transform: translateY(0) rotateX(0deg) scale(1);
+  opacity: 1;
+}
+
+/* Floating depth */
+.depth-object {
+  transform: translateZ(0);
+  transition: transform 0.2s ease-out;
+}
+
+/* 3D hover effect */
+.three-d-hover {
+  transform-style: preserve-3d;
+  transition: transform 0.25s ease;
+}
+
+.three-d-hover:hover {
+  transform:
+    perspective(900px)
+    rotateX(5deg)
+    rotateY(-5deg)
+    translateY(-8px);
+}
+
+/* Prevent horizontal overflow */
+body {
+  overflow-x: hidden;
+}
