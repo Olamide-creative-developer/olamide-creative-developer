@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Olamide Control Center</title>
+    <link rel="stylesheet" href="admin.css">
+</head>
+
+<body>
+
+    <div class="dashboard">
+
+        <!-- SIDEBAR -->
+        <aside class="sidebar">
+
+            <div class="admin-logo">
+                <img src="../images/olamide-logo.png" alt="Olamide Logo">
+                <div>
+                    <strong><span>OLA</span>MIDE</strong>
+                    <small>CONTROL CENTER</small>
+                </div>
+            </div>
+
+            <nav>
+                <button class="active">📊 Overview</button>
+                <button>👥 Visitors</button>
+                <button>🌐 Traffic</button>
+                <button>🎮 Arcade</button>
+                <button>💻 Portfolio</button>
+                <button>📩 Messages</button>
+                <button>🏆 Achievements</button>
+            </nav>
+
+            <div class="sidebar-bottom">
+                <span>🟢 System Online</span>
+                <button>🔐 Logout</button>
+            </div>
+
+        </aside>
+
+
+        <!-- MAIN CONTENT -->
+        <main class="main">
+
+            <header class="topbar">
+                <div>
+                    <h1>Dashboard</h1>
+                    <p>Welcome back, Olamide.</p>
+                </div>
+
+                <div class="live-status">
+                    <span></span> LIVE
+                </div>
+            </header>
+
+
+            <!-- STAT CARDS -->
+            <section class="stats">
+
+                <div class="stat-card">
+                    <span>👥</span>
+                    <small>Visitors Today</small>
+                    <strong id="todayVisitors">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>🌍</span>
+                    <small>Total Visitors</small>
+                    <strong id="totalVisitors">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>📅</span>
+                    <small>This Week</small>
+                    <strong id="weekVisitors">0</strong>
+                </div>
+
+                <div class="stat-card">
+                    <span>📈</span>
+                    <small>This Month</small>
+                    <strong id="monthVisitors">0</strong>
+                </div>
+
+            </section>
+
+
+            <!-- ANALYTICS -->
+            <section class="content-grid">
+
+                <div class="panel chart-panel">
+                    <div class="panel-title">
+                        <div>
+                            <h2>Visitor Analytics</h2>
+                            <p>Real visitor activity will appear here.</p>
+                        </div>
+
+                        <select id="chartRange">
+                            <option>Daily</option>
+                            <option>Weekly</option>
+                            <option>Monthly</option>
+                        </select>
+                    </div>
+
+                    <div class="chart-placeholder">
+                        <span>📊</span>
+                        <p>Waiting for real data...</p>
+                    </div>
+                </div>
+
+
+                <!-- GAUGE -->
+                <div class="panel gauge-panel">
+
+                    <h2>Website Activity</h2>
+
+                    <div class="gauge">
+                        <div class="gauge-value">0%</div>
+                    </div>
+
+                    <div class="gauge-labels">
+                        <span>🔴 Low</span>
+                        <span>🟡 Medium</span>
+                        <span>🟢 High</span>
+                    </div>
+
+                </div>
+
+            </section>
+
+
+            <!-- LOWER PANELS -->
+            <section class="content-grid lower">
+
+                <div class="panel">
+                    <h2>🌐 Traffic Sources</h2>
+
+                    <div class="empty-state">
+                        <p>No traffic data yet.</p>
+                    </div>
+                </div>
+
+
+                <div class="panel">
+                    <h2>⚡ Live Activity</h2>
+
+                    <div id="activityList" class="empty-state">
+                        <p>Waiting for visitor activity...</p>
+                    </div>
+                </div>
+
+            </section>
+
+
+            <!-- ARCADE -->
+            <section class="panel arcade-panel">
+
+                <h2>🎮 Arcade Analytics</h2>
+
+                <div class="arcade-stats">
+
+                    <div>
+                        <small>Arcade Visitors</small>
+                        <strong id="arcadeVisitors">0</strong>
+                    </div>
+
+                    <div>
+                        <small>Games Played</small>
+                        <strong id="gamesPlayed">0</strong>
+                    </div>
+
+                    <div>
+                        <small>Most Played</small>
+                        <strong id="mostPlayed">—</strong>
+                    </div>
+
+                </div>
+
+            </section>
+
+            <footer>
+                Olamide Control Center • Private Admin Dashboard
+            </footer>
+
+        </main>
+
+    </div>
+
+    <script src="admin.js"></script>
+
+</body>
+</html>

@@ -58,11 +58,10 @@ const intentKeywords = {
         "who is he",
         "introduce yourself",
         "who exactly are you",
-        "who exactly is olamide",
         "who are you",
         "explain yourself",
         "who you be",
-        "Olamide"
+        "olamide"
     ],
 
     LOCATION_BASED: [
@@ -346,7 +345,8 @@ const intentKeywords = {
         "does olamide have availability",
         "olamide dey available",
         "can you work",
-        "can i hire you"
+        "can i hire you",
+        "are you avalable"
     ]
 };
 
@@ -459,7 +459,7 @@ function detectIntent(message) {
                         <button onclick="showAIWork('uiux')">
                             🖥️ UI/UX Design
                         </button>
-
+ 
                         <button onclick="showAIWork('writing')">
                             ✍️ Writing
                         </button>
@@ -1439,5 +1439,24 @@ function showFunSection() {
     response.style.display = "block";
 }
 
+// SUPABASE VISITOR TRACKING
 
+const SUPABASE_URL = "https://uegrmtgysofmlqabelma.supabase.co";
+const SUPABASE_KEY = "sb_publishable_Ir-IRt2Y6im91q4P6NVsog_0juGH_Dy";
 
+fetch(`${SUPABASE_URL}/rest/v1/visitor_events`, {
+    method: "POST",
+    headers: {
+        "Content-Type": "application/json",
+        "apikey": SUPABASE_KEY,
+        "Authorization": `Bearer ${SUPABASE_KEY}`,
+        "Prefer": "return=minimal"
+    },
+    body: JSON.stringify({
+        event_type: "page_view",
+        page: window.location.pathname,
+        referrer: document.referrer || null
+    })
+}).catch(error => {
+    console.error("Visitor tracking error:", error);
+});
