@@ -1441,7 +1441,7 @@ function showFunSection() {
 
 // SUPABASE VISITOR TRACKING
 
-const SUPABASE_URL = "https://uegrmtgysofmlqabelma.supabase.co";
+const SUPABASE_URL = "https://ueqrmtgysofmlqabelma.supabase.co";
 const SUPABASE_KEY = "sb_publishable_Ir-IRt2Y6im91q4P6NVsog_0juGH_Dy";
 
 fetch(`${SUPABASE_URL}/rest/v1/visitor_events`, {
