@@ -1444,6 +1444,14 @@ function showFunSection() {
 const SUPABASE_URL = "https://ueqrmtgysofmlqabelma.supabase.co";
 const SUPABASE_KEY = "sb_publishable_Ir-IRt2Y6im91q4P6NVsog_0juGH_Dy";
 
+// Create or retrieve a unique visitor ID
+let visitorId = localStorage.getItem("olamide_visitor_id");
+
+if (!visitorId) {
+    visitorId = crypto.randomUUID();
+    localStorage.setItem("olamide_visitor_id", visitorId);
+}
+
 fetch(`${SUPABASE_URL}/rest/v1/visitor_events`, {
     method: "POST",
     headers: {
@@ -1455,7 +1463,8 @@ fetch(`${SUPABASE_URL}/rest/v1/visitor_events`, {
     body: JSON.stringify({
         event_type: "page_view",
         page: window.location.pathname,
-        referrer: document.referrer || null
+        referrer: document.referrer || null,
+        visitor_id: visitorId
     })
 }).catch(error => {
     console.error("Visitor tracking error:", error);

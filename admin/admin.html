@@ -102,11 +102,9 @@
                         </select>
                     </div>
 
-                    <div class="chart-placeholder">
-                        <span>📊</span>
-                        <p>Waiting for real data...</p>
+                    <div id="visitorChart" class="visitor-chart">
+                    <div class="chart-loading">Loading real visitor data...</div>
                     </div>
-                </div>
 
 
                 <!-- GAUGE -->
@@ -115,7 +113,7 @@
                     <h2>Website Activity</h2>
 
                     <div class="gauge">
-                        <div class="gauge-value">0%</div>
+                        <div class="gauge-value" id="activityGauge">0%</div>
                     </div>
 
                     <div class="gauge-labels">
@@ -126,6 +124,33 @@
 
                 </div>
 
+                <!-- QUICK INSIGHTS -->
+<div class="panel insights-panel">
+
+    <h2>Quick Insights</h2>
+
+    <div class="insight-item">
+        <span>🔥 Peak Day</span>
+        <strong id="peakDay">Loading...</strong>
+    </div>
+
+    <div class="insight-item">
+        <span>⚡ Today</span>
+        <strong id="insightToday">0</strong>
+    </div>
+
+    <div class="insight-item">
+        <span>👥 Total Visits</span>
+        <strong id="insightTotal">0</strong>
+    </div>
+
+    <div class="insight-item">
+        <span>🌍 Top Source</span>
+        <strong id="insightSource">Loading...</strong>
+    </div>
+
+</div>
+
             </section>
 
 
@@ -135,8 +160,8 @@
                 <div class="panel">
                     <h2>🌐 Traffic Sources</h2>
 
-                    <div class="empty-state">
-                        <p>No traffic data yet.</p>
+                    <div id="trafficSources" class="empty-state">
+                       <p>Loading traffic data...</p>
                     </div>
                 </div>
 
